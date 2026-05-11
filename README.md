@@ -1,6 +1,6 @@
 # dementia-haptic-guidance
 
-This project is developed by students of KU Leuven and develops a wearable haptic navigation system for people with young dementia who experience spatial disorientation and wandering behaviour. The prototype is activated when a person moves beyond a certain radius from a pre-set point; this point could be the person’s home or a care centre. This means that a carer is no longer needed and the person can live independently.
+This project, developed by students at KU Leuven, focuses on the development of a wearable haptic navigation system for people with early-stage dementia who experience spatial disorientation and wandering behaviour. The prototype is activated when a person moves beyond a predefined radius from a safe location, such as their home or a care centre. Once activated, the system provides intuitive haptic guidance to help the user return safely, reducing the need for continuous supervision and allowing people with dementia to maintain a greater level of independence
 
 ## Team Members
 - Matts Lanting
