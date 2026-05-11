@@ -15,7 +15,7 @@ This project is developed by students of KU Leuven and develops a wearable hapti
 - references/ → references
 
 
-# Introduction
+## Introduction
 
 Dementia is a growing medical and social challenge, especially as the ageing population increases. One common and dangerous symptom is spatial disorientation, which can lead to wandering behaviour. People with dementia may leave their home or care facility and become unable to find their way back. This can result in dangerous situations, anxiety for the person with dementia, and increased stress for family members and caregivers. The Alzheimer’s Association states that six in ten people living with dementia will wander at least once, and many do so repeatedly. :contentReference[oaicite:0]{index=0}
 
