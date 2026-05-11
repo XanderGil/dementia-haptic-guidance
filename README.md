@@ -12,15 +12,8 @@ This project is developed by students of KU Leuven and develops a wearable hapti
 - code/ → Arduino code
 - hardware/ → schematics and CAD
 - media/ → images and videos
+- references/ → references
 
-## Documentation
-
-- [Introduction](docs/introduction.md)
-- [Supplies](docs/supplies.md)
-- [Methods](docs/methods.md)
-- [Discussion](docs/discussion.md)
-- [Conclusion](docs/conclusion.md)
-- [References](docs/references.md)
 
 # Introduction
 
