@@ -38,7 +38,7 @@ This project proposes a wearable haptic system that uses a bearing-based "hot/co
 When the user moves toward the home point, the device provides a calm pulse; as they deviate, vibration intensity increases proportionally to the angular offset [[16]](docs/references/). To ensure effective perception in elderly users with diminished tactile sensitivity, the system utilizes Drake Haptic Actuators (TacHammers), which employ a solid-state magnetic suspension for sharp, percussive feedback [[17]](docs/references/). By restoring the ability to navigate safely and autonomously, the system aims to reduce caregiver anxiety and preserve the independence of people living with early-stage dementia.
 
 
-## suplies
+## Supplies
 
 | Component                                | Quantity | Description                                                       | Example Product                                                                                                                                                                                                            | Estimated Cost |
 | ---------------------------------------- | -------: | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------: |
