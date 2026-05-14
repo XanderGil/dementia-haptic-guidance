@@ -28,3 +28,21 @@ Haptic technology offers several advantages in this medical context. Traditional
 The proposed system uses a “hot/cold” navigation principle. The device continuously compares two directions: the bearing toward the home location and the heading of the user based on GPS measurements. When the user moves in the correct direction, the vibrations become calmer. When the user deviates from the correct direction, the vibrations increase in intensity. This allows the user to receive simple and intuitive guidance without explicit verbal commands such as “turn left” or “turn right”, thereby reducing confusion and overstimulation.
 
 Several studies have already investigated haptic navigation aids for visually impaired users and pedestrian navigation applications [[3]](docs/references/),[[4]](docs/references/). However, relatively little research has focused specifically on wearable haptic guidance systems for people with dementia. Existing dementia-related technologies mainly focus on tracking and monitoring rather than restoring independent navigation abilities. This project aims to contribute to this research gap by exploring whether simple wearable haptic feedback can provide a low-cost, intuitive, and non-invasive solution for safe autonomous navigation in people with dementia.
+
+
+
+| Component                        | Quantity | Description                                                       | Example Product                                                    | Estimated Cost |
+| -------------------------------- | -------: | ----------------------------------------------------------------- | ------------------------------------------------------------------ | -------------: |
+| Microcontroller                  |        1 | Main controller handling sensor fusion, GPS, and haptic logic     | [Arduino Micro Arduino a000053]()                                  |           ~€24 |
+| Haptic Driver                    |        2 | Drives the vibration actuators using I2C                          | [SparkFun Haptic Motor Driver - DRV2605L]()                        |      ~€10 each |
+| Haptic Actuator (“Drake haptic”) |        2 | Vibrotactile feedback motors used for directional navigation cues | ERM/LRA haptic motors compatible with DRV2605L                     |    ~€5–10 each |
+| I2C Multiplexer                  |        1 | Allows multiple I2C devices with identical addresses on one bus   | [Adafruit Multiplexer I2C TCA9548A]()                              |            ~€8 |
+| GPS Module                       |        1 | Provides real-time geographic position and navigation data        | [Adafruit Ultimate GPS Breakout with GLONASS + GPS]()              |           ~€50 |
+| Accelerometer/Gyroscope          |        1 | Measures acceleration and tilt for orientation estimation         | [GY-521 MPU-6050 3-assige gyroscoop en versnellingsmeter Set]()    |           ~€10 |
+| Magnetometer                     |        1 | Measures Earth’s magnetic field for heading estimation            | [Adafruit Drieassige magneetmeter]()                               |           ~€10 |
+| Breadboard                       |        1 | Rapid prototyping platform for temporary circuit assembly         | Standard half-size breadboard                                      |            ~€5 |
+| Jumper wires                     |      ~40 | Electrical connections between modules                            | [Dupont Jumper Kabels 40 Stuks (Male-Male) 20cm Voor Breadboard]() |            ~€2 |
+| USB Cable                        |        1 | Programming and powering the Arduino                              | Micro-USB cable                                                    |            ~€3 |
+| Portable Power Supply            |        1 | Mobile power source for wearable operation                        | USB power bank (5V output)                                         |        ~€10–20 |
+| Plastic Enclosure                |        1 | Housing for wearable electronics                                  | Generic plastic project box                                        |         ~€5–10 |
+
