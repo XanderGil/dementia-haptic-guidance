@@ -68,7 +68,7 @@ The prototype is built around an Arduino Micro and combines GPS positioning, ori
 
 Based on the difference between these two values, the system activates haptic feedback on the left or right side of the wearable.
 
-#### System Architecture Diagram
+### System Architecture Diagram
 - GPS --> Arduino
 - Magnetometer --> Arduino
 - MPU6050 --> Arduino
@@ -76,7 +76,7 @@ Based on the difference between these two values, the system activates haptic fe
 - TCA9548A --> DRV2605L Left --> TacHammer Left
 - TCA9548A --> DRV2605L Right --> TacHammer Right
 
-#### Wiring
+### Pin Connections
 | Component | Interface | Arduino Pins |
 | --------- | --------- | ------------ |
 | GPS       | Serial    | RX/TX        |
