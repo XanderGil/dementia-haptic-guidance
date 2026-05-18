@@ -93,20 +93,31 @@ After calibration, the compass achieved a directional accuracy of approximately 
 
 ### Step 3: Tilt and Roll Compensation
 
-Because the device is worn on the body, the sensor is rarely perfectly horizontal during movement. Even small tilts can distort compass readings and produce incorrect heading values.
+Because the device is worn on the body, the sensor is rarely perfectly horizontal during movement. Even small tilts can distort compass readings and produce incorrect heading values. To compensate for this, an MPU6050 IMU was added. This module measures:
 
-To compensate for this, an MPU6050 IMU was added. This module measures:
+- tilt
+- roll
+- acceleration
 
-tilt
-roll
-acceleration
-
-Using this information, the software compensates the magnetometer readings in real time so the heading remains stable even when the user moves naturally. The MPU6050 was also calibrated to remove sensor offsets and improve measurement stability.
+Using this information, the software compensates the magnetometer readings in real time so the heading remains stable even when the user moves naturally.
 
 ### Step 4: Haptic Feedback System
 
 
 
+### Step 5: Driver Communication
+The TacHammer actuators are controlled using DRV2605L haptic driver boards. A hardware limitation appeared because both driver boards use the same fixed I2C address, meaning they cannot normally operate together on the same bus.
+
+To solve this, a TCA9548A I2C multiplexer was added. This allows the Arduino to communicate with each driver independently and activate the left and right actuator separately.
+
+### Step 6: Software integration
+The Arduino software continuously:
+1. reads GPS coordinates
+2. calculates the bearing to the safe location
+3. determines the current heading
+4. compares heading and bearing
+5. activates the correct haptic feedback pattern
+Sensor filtering and smoothing were added to reduce noise and prevent unstable vibration behaviour.
 
 
 
