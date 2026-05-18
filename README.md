@@ -58,7 +58,6 @@ To ensure reliable perception for elderly users with reduced tactile sensitivity
 | **Total Estimated Cost**                 |          |                                                                   |                                                                                                                                                                                                                            |  **~€170–180** |
 
 ## Methods
-This section describes the technical approach and system integration required to build the haptic guidance prototype. The system architecture is divided into four main layers: sensing, processing, decision, and haptic output.
 
 ### System Overview
 The prototype is built around an Arduino Micro and combines GPS positioning, orientation sensing, and haptic feedback to guide a user back to a predefined safe location.The system continuously compares:
