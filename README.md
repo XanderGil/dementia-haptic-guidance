@@ -68,6 +68,12 @@ The prototype is built around an Arduino Micro and combines GPS positioning, ori
 
 Based on the difference between these two values, the system activates haptic feedback on the left or right side of the wearable.
 
+GPS --> Arduino
+Magnetometer --> Arduino
+MPU6050 --> Arduino
+Arduino --> TCA9548A
+TCA9548A --> DRV2605L --> TacHammer
+
 ### Step 1: Core Components
 The following components form the basis of the prototype:
 
@@ -111,7 +117,7 @@ float hz = mz - dot * az;
 
 This produces a horizontal magnetic vector that is less affected by tilt and roll. The final heading is then corrected for local magnetic declination and smoothed using an exponential filter to reduce sensor noise and prevent unstable haptic feedback
 
-### Step 4: Haptic Feedback System
+### Step 4: Navigation Logic and Haptic Feedback
 The Arduino continuously combines the GPS position, compass heading, and tilt-compensated orientation data to determine the direction of the predefined safe location. Using the TinyGPS library, the system calculates both the distance and the bearing toward the target location.
 
 The navigation logic compares the user’s current heading with the target bearing and calculates the angular error between both directions. Based on this error, the system activates directional haptic feedback through the left and right TacHammer actuators. The feedback follows a threshold-based steering logic:
