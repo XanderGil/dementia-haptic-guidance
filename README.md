@@ -97,6 +97,7 @@ Because the device is worn on the body, the sensor will not always remain perfec
 To improve heading stability, the system combines the 3-axis magnetic field data from the LIS3MDL with the 3-axis accelerometer data from the MPU6050. The accelerometer acts as a gravity reference, allowing the software to estimate the tilt of the device in real time.
 
 Tilt compensation is performed using vector projection. First, the magnetic field vector is projected onto the gravity vector:
+
 `
 float dot = mx * ax + my * ay + mz * az;
 `
@@ -141,36 +142,6 @@ To improve stability, exponential smoothing was applied to the heading data. Ins
 float diff = normalizeAngle(heading - smoothHeading);
 smoothHeading = wrap360(smoothHeading + diff * HEADING_SMOOTH_FACTOR);
 ```
-
-
-
-
-### Step 1: Core Components
-The core of the system is the Arduino Micro, chosen for its compact size and comprehensive communication interfaces (I2C and Serial) suitable for wearable applications. The logic dictates that the system must continuously calculate two vectors: the bearing (the direct line from the current location to the preset home location) and the heading (the direction the user is currently facing or moving). To deliver clear, percussive tactile feedback without causing overstimulation, Drake TacHammer were selected as actuators.
-
-
-### Step 2: Determining Direction (Heading vs Bearing)
-Initially, the system was designed to rely solely on the GY-NEO6MV2 GPS module for both position and heading data. However, relying on successive GPS coordinates to determine heading proved too inaccurate and slow at pedestrian walking speeds. To resolve this, an LIS3MDL magnetometer was integrated to determine the absolute direction. To ensure data reliability, the magnetometer was calibrated to eliminate hard-iron and soft-iron offsets, achieving a reliable heading accuracy within an acceptable range of ~10°C. Furthermore, because the user wears the device around the waist, the sensor is rarely perfectly horizontal, which would normally distort compass readings. To solve this, an MPU-6050 IMU was incorporated to provide real-time tilt and roll compensation, ensuring stable orientation tracking regardless of arm positioning. Both auxiliary sensors communicate with the Arduino Micro via the shared I2C bus.
-
-### Step 3: Haptic Output Subsystem Construction
-Driving the Drake TacHammers requires precise waveform generation, which is handled by two Adafruit DRV2605L Haptic Drivers. A hardware constraint arose because both DRV2605L modules share the same hardcoded I2C address, preventing them from being used simultaneously on the standard Arduino I2C bus. To resolve this, an Adafruit TCA9548A I2C Multiplexer was integrated. The Arduino sends routing commands to the multiplexer, which then forwards the specific vibration profiles to either the left or the right actuator independently.
-
-### Step 4: Software Implementation and Decision Logic
-The software architecture on the Arduino Micro is designed to continuously fuse sensor data, compute navigation vectors, and execute an intelligent haptic steering algorithm. The logic is divided into three primary subroutines.
-
-#### Sensor Fusion & Tilt Compensation:
-A magnetic compass is highly sensitive to tilt. To ensure accurate heading data while the user is walking, the software reads the raw 3-axis magnetic field from the LIS3MDL and the 3-axis acceleration from the MPU6050. Using vector projection, the accelerometer data acts as a gravity reference to mathematically compensate for the magnetometer's tilt. The resulting heading is then corrected for local magnetic declination and passed through an exponential smoothing filter to reduce sensor noise and prevent erratic haptic triggers.
-
-#### Navigation Vectoring:
-The TinyGPS library parses the incoming Serial NMEA sentences to extract the current latitude and longitude. The system continuously calculates the distance and the absolute bearing to the predefined safe zone (home radius).
-
-#### Discrete Haptic Steering Algorithm:
-Instead of a purely linear scaling of vibration, the decision layer calculates the angular error between the user's current heading and the target bearing. It then applies a threshold-based steering logic targeting the left or right actuator via the I2C multiplexer:
--> Forward/On-Track (Error <= 25°): A gentle, synchronous confirmation pulse on both actuators (doGentleConfirmation).
--> Slight Deviation (Error <= 60°): A light directional pulse on either the left or right actuator, prompting the user to correct their course.
--> Strong Deviation (Error <= 120°): A stronger, repeated pulse on the specific side the user needs to turn toward.
--> Wrong Direction / Moving Away: The system tracks consecutive errors and distance trends (movingAwayCounter, wrongDirectionCounter). If the user is walking away from the target or is completely turned around (Error > 120°), both actuators fire a strong, repeated warning pattern (doVeryWrongDirection).
-
 
 ## Discussion
 
