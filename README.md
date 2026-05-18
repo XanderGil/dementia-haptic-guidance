@@ -97,10 +97,9 @@ Because the device is worn on the body, the sensor will not always remain perfec
 To improve heading stability, the system combines the 3-axis magnetic field data from the LIS3MDL with the 3-axis accelerometer data from the MPU6050. The accelerometer acts as a gravity reference, allowing the software to estimate the tilt of the device in real time.
 
 Tilt compensation is performed using vector projection. First, the magnetic field vector is projected onto the gravity vector:
-``cpp
+`
 float dot = mx * ax + my * ay + mz * az;
-``
-
+`
 The component aligned with gravity is then removed:
 ```cpp
 float hx = mx - dot * ax;
