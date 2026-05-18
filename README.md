@@ -207,24 +207,28 @@ To evolve this prototype into a production-ready medical device, future developm
 
 ## References
 
-[1] S. A. Shah et al., “Dementia Care Research and Education in Low- and Middle-Income Countries: A Global Perspective,” Frontiers in Public Health, vol. 10, 2022, doi: 10.3389/fpubh.2022.769929.
+[1] S. A. Shah et al., “Dementia Care Research and Education in Low- and Middle-Income Countries: A Global Perspective,” *Frontiers in Public Health*, vol. 10, 2022, doi: 10.3389/fpubh.2022.769929.
 
-[2] T. Dimitriou et al., “Non-Pharmacological Interventions for Wandering/Aberrant Motor Behaviour in Patients with Dementia,” Brain Sciences, vol. 12, no. 2, p. 130, Jan. 2022, doi: 10.3390/brainsci12020130.
+[2] T. Dimitriou et al., “Non-Pharmacological Interventions for Wandering/Aberrant Motor Behaviour in Patients with Dementia,” *Brain Sciences*, vol. 12, no. 2, p. 130, Jan. 2022, doi: 10.3390/brainsci12020130.
 
-[3] A. Serra et al., “Spatial Navigation Deficits in Alzheimer’s Disease: The Role of the Hippocampus-Entorhinal Cortex Network,” Journal of Clinical Medicine, vol. 14, no. 2, p. 579, 2025, doi: 10.3390/jcm14020579.
+[3] A. Serra et al., “Spatial Navigation Deficits in Alzheimer’s Disease: The Role of the Hippocampus-Entorhinal Cortex Network,” *Journal of Clinical Medicine*, vol. 14, no. 2, p. 579, 2025, doi: 10.3390/jcm14020579.
 
-[4] K. Öhman, A. Nygård, and K. Rosenberg, “Effects of Tracking Technology on Daily Life of Persons with Dementia: Three Experimental Single-Case Studies,” American Journal of Alzheimer’s Disease & Other Dementias, vol. 29, no. 1, pp. 29–40, 2014, doi: 10.1177/1533317513505131.
+[4] K. Öhman, A. Nygård, and K. Rosenberg, “Effects of Tracking Technology on Daily Life of Persons with Dementia: Three Experimental Single-Case Studies,” *American Journal of Alzheimer’s Disease & Other Dementias*, vol. 29, no. 1, pp. 29–40, 2014, doi: 10.1177/1533317513505131.
 
-[5] LTC News, “GPS Trackers for Dementia Safety: Best Options to Consider in 2026,” 2026. [Online]. Available: https://www.ltcnews.com/articles/gps-trackers-for-dementia-safety-best-options-to-consider-in-2026
+[5] LTC News, “GPS Trackers for Dementia Safety: Best Options to Consider in 2026,” 2026. [Online]. Available:  
+https://www.ltcnews.com/articles/gps-trackers-for-dementia-safety-best-options-to-consider-in-2026
 
-[6] A. McDonald et al., “Ethical Concerns Regarding Monitoring Technologies for People Living with Dementia,” International Psychogeriatrics, 2024. [Online]. Available: https://www.intpsychogeriatrics.org/article/S1041-6102(24)02073-8/fulltext
+[6] A. McDonald et al., “Ethical Concerns Regarding Monitoring Technologies for People Living with Dementia,” *International Psychogeriatrics*, 2024. [Online]. Available:  
+https://www.intpsychogeriatrics.org/article/S1041-6102(24)02073-8/fulltext
 
-[7] A. Tursynbekova et al., “Caregiver Burden and Psychological Distress Among Informal Caregivers for Individuals with Dementia in the Republic of Kazakhstan: A Cross-Sectional Study,” Healthcare, vol. 13, no. 20, p. 2633, 2025, doi: 10.3390/healthcare13202633.
+[7] A. Tursynbekova et al., “Caregiver Burden and Psychological Distress Among Informal Caregivers for Individuals with Dementia in the Republic of Kazakhstan: A Cross-Sectional Study,” *Healthcare*, vol. 13, no. 20, p. 2633, 2025, doi: 10.3390/healthcare13202633.
 
-[8] National Council of Certified Dementia Practitioners, “The Impact of Dementia on Caregivers and Family Members.” [Online]. Available: https://www.nccdp.org/the-impact-of-dementia-on-caregivers-and-family-members/
+[8] National Council of Certified Dementia Practitioners, “The Impact of Dementia on Caregivers and Family Members.” [Online]. Available:  
+https://www.nccdp.org/the-impact-of-dementia-on-caregivers-and-family-members/
 
-[9] A. Spiers, E. Young, and K. Kuchenbecker, “The S-BAN: Insights into the Perception of Shape-Changing Haptic Interfaces via Virtual Pedestrian Navigation,” Scientific Reports, vol. 14, 2024, doi: 10.1038/s41598-024-79845-7.
+[9] A. Spiers, E. Young, and K. Kuchenbecker, “The S-BAN: Insights into the Perception of Shape-Changing Haptic Interfaces via Virtual Pedestrian Navigation,” *Scientific Reports*, vol. 14, 2024, doi: 10.1038/s41598-024-79845-7.
 
-[10] S. Pielot, N. Henze, and S. Boll, “Guiding Blind People with Haptic Feedback,” in Proceedings of the CHI Workshop on Haptic and Audio Interaction Design, 2011. [Online]. Available: https://www.researchgate.net/publication/235005436_Guiding_Blind_People_with_Haptic_Feedback
+[10] S. Pielot, N. Henze, and S. Boll, “Guiding Blind People with Haptic Feedback,” in *Proceedings of the CHI Workshop on Haptic and Audio Interaction Design*, 2011.
 
-[11] HapticWorks, “Haptic Navigation Technology for Blind and Visually Impaired Users.” [Online]. Available: https://haptic.works/
+[11] HapticWorks, “Haptic Navigation Technology for Blind and Visually Impaired Users.” [Online]. Available:  
+https://haptic.works/
