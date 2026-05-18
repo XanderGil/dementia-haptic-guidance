@@ -18,6 +18,7 @@ This project, developed by students at KU Leuven, focuses on the development of 
 ## Introduction
 
 ### The Global Burden of Dementia and Wandering
+<div align="justify">
 Dementia is an escalating global health priority, with the World Health Organization estimating 78 million cases by 2030 [[1]](https://pmc.ncbi.nlm.nih.gov/articles/PMC8869749/). One of the most dangerous symptoms is wandering behaviour, affecting approximately 60% of people with Alzheimer’s Disease (AD) [[2]](https://pmc.ncbi.nlm.nih.gov/articles/PMC6234917/). Wandering is often an intentional effort to reach a destination, but because of cognitive decline, patients frequently lose the ability to retrace their steps. This leads to "critical wandering": if a patient is not found within 24 hours, half of them suffer serious injury or death due to accidents, dehydration, or exposure [[2]](https://pmc.ncbi.nlm.nih.gov/articles/PMC6234917/).
 
 ### Neurobiological Basis of Spatial Disorientation
@@ -38,6 +39,7 @@ This project proposes a wearable haptic navigation system designed to help peopl
 The system continuously compares the user’s current heading with the bearing toward the safe location. When the user moves outside a predefined safe radius, the device activates and provides directional haptic guidance: vibrations on the left indicate that the user should adjust toward the left, while vibrations on the right indicate a correction toward the right. The intensity of the vibration increases proportionally to the angular deviation from the correct direction, making larger navigation errors more noticeable. When the user is moving in the correct direction toward the safe location, the system emits a calm confirmation pulse. If the user continues moving away from the target location or in a strongly incorrect direction, the device switches to a more urgent warning pattern to alert the user.
 
 To ensure reliable perception for elderly users with reduced tactile sensitivity, the system uses Drake Haptic Actuators (TacHammers), which generate strong, sharp, and highly perceivable tactile feedback through solid-state magnetic suspension technology. By replacing cognitively demanding visual or auditory navigation with intuitive haptic cues, the system aims to support safer independent mobility while reducing caregiver stress and supervision demands.
+</div>
 
 
 ## Supplies
