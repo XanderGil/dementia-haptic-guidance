@@ -68,7 +68,7 @@ The prototype is built around an Arduino Micro and combines GPS positioning, ori
 
 Based on the difference between these two values, the system activates haptic feedback on the left or right side of the wearable.
 
-### System Architecture Diagram
+### System Architecture
 - GPS --> Arduino
 - Magnetometer --> Arduino
 - MPU6050 --> Arduino
