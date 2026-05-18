@@ -100,9 +100,11 @@ Tilt compensation is performed using vector projection. First, the magnetic fiel
 'float dot = mx * ax + my * ay + mz * az;'
 
 The component aligned with gravity is then removed:
-'''float hx = mx - dot * ax;
+'''cpp
+float hx = mx - dot * ax;
 float hy = my - dot * ay;
-float hz = mz - dot * az;'''
+float hz = mz - dot * az;
+'''
 
 This produces a horizontal magnetic vector that is less affected by tilt and roll. The final heading is then corrected for local magnetic declination and smoothed using an exponential filter to reduce sensor noise and prevent unstable haptic feedback
 
