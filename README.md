@@ -136,10 +136,11 @@ The Arduino software continuously:
 Raw compass measurements can fluctuate slightly because of sensor noise and small body movements while walking. Without filtering, these fluctuations could cause the haptic feedback to rapidly switch between left and right directions.
 
 To improve stability, exponential smoothing was applied to the heading data. Instead of instantly using every new heading measurement, the software gradually blends new values with previous ones:
-``cpp
+
+```cpp
 float diff = normalizeAngle(heading - smoothHeading);
 smoothHeading = wrap360(smoothHeading + diff * HEADING_SMOOTH_FACTOR);
-``
+```
 
 
 
