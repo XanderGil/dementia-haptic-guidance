@@ -165,7 +165,7 @@ smoothHeading = wrap360(smoothHeading + diff * HEADING_SMOOTH_FACTOR);
 ### Addressing the Medical Challenge
 The primary objective of this project was to develop an active, non-intrusive haptic guidance system to mitigate the risks of spatial disorientation and wandering in early-stage dementia patients. Overall, the prototype successfully demonstrated that a wearable device can actively steer a user back to a safe "home radius" without relying on complex visual or auditory instructions. By transitioning from passive GPS tracking to active tactile navigation, the system provides a strong proof-of-concept for preserving patient autonomy while reducing caregiver burden.
 
-### Sensor Performance and Limitations
+### Sensor Limitations
 During testing, the sensor fusion approach proved important for stable navigation behaviour. The NEO-6M GPS module generally provided sufficient positioning accuracy for the prototype, although obtaining an initial satellite fix could sometimes take longer during cold starts or under heavy cloud cover. Like most consumer-grade GPS systems, measurement accuracy depended on the surrounding environment and satellite visibility, meaning results could vary between clear and cloudy weather conditions or between rural and urban areas.
 
 Initial experiments showed that determining the user’s heading solely from successive GPS coordinates was insufficiently stable at normal walking speeds. Integrating the LIS3MDL magnetometer together with MPU6050-based tilt compensation significantly improved orientation stability and produced more reliable directional feedback during movement.
