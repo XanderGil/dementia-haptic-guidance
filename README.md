@@ -179,23 +179,25 @@ The iterative shift from a purely continuous "hot/cold" vibration mapping to a d
 ## Conclusion and Future Work
 
 ### Conclusion
-The "Haptic Home Guidance for Dementia" prototype successfully demonstrates the viability of using active, tactile navigation to assist individuals experiencing spatial disorientation. By fusing standard GPS localization with tilt-compensated magnetometer readings, the system effectively overcomes the inaccuracies typical of low-speed pedestrian GPS tracking. The implementation of a discrete, threshold-based left/right haptic steering algorithm proved highly effective, providing intuitive directional cues without overwhelming the user's visual or auditory channels. Ultimately, this prototype validates the concept of transitioning from passive monitoring to active, autonomous guidance.
+The "Haptic Home Guidance for Dementia" prototype successfully demonstrates the viability of using active, tactile navigation to assist individuals experiencing spatial disorientation. By fusing standard GPS localization with tilt-compensated magnetometer readings, the system effectively overcomes the inaccuracies typical of low-speed pedestrian GPS tracking. The implementation of a discrete, threshold-based left/right haptic steering algorithm proved effective, providing intuitive directional cues without overwhelming the user's visual or auditory channels. Ultimately, this prototype validates the concept of transitioning from passive monitoring to active, autonomous guidance.
 
 ### Lessons Learned
 For others building upon this work, several key technical and conceptual lessons emerged during development:
 
--> Sensor Fusion is Essential: Relying solely on GPS for heading calculation is inadequate for slow-moving pedestrians. Integrating a calibrated magnetometer and an IMU for real-time tilt compensation is strictly necessary, especially for a waist-worn device that is rarely perfectly horizontal.
+- Sensor Fusion is Essential: Relying solely on GPS for heading calculation is inadequate for slow-moving pedestrians. Integrating a calibrated magnetometer and an IMU for real-time tilt compensation is strictly necessary, especially for a waist-worn device that is rarely perfectly horizontal.
 
--> Discrete vs. Continuous Feedback: We initially hypothesized that a continuous "hot/cold" proportional vibration would be intuitive. However, practical testing revealed that discrete, distinct patterned pulses (e.g., slight left vs. strong left) are significantly easier for a user to interpret while walking.
+- Discrete vs. Continuous Feedback: We initially hypothesized that a continuous "hot/cold" proportional vibration would be intuitive. However, practical testing revealed that discrete, distinct patterned pulses (e.g., slight left vs. strong left) are significantly easier for a user to interpret while walking.
 
--> The "Bird's-Eye" Limitation: Calculating the bearing via direct line-of-sight mathematics is highly efficient for the microcontroller but ignores physical real-world obstacles like buildings or fences, highlighting the limits of coordinate-only navigation.
+- The "Bird's-Eye" Limitation: Calculating the bearing via direct line-of-sight mathematics is highly efficient for the microcontroller but ignores physical real-world obstacles like buildings or fences, highlighting the limits of coordinate-only navigation.
 
 ### Future Work
 To evolve this prototype into a production-ready medical device, future development should focus on the following areas:
 
--> Smart Routing Integration: Upgrading the navigation logic from direct line-of-sight coordinates to an integrated map network API. This would allow the system to guide users safely via actual streets, sidewalks and intersections.
+- Smart Routing Integration: Upgrading the navigation logic from direct line-of-sight coordinates to an integrated map network API. This would allow the system to guide users safely via actual streets, sidewalks and intersections.
 
--> Ergonomic Miniaturization: The current breadboard setup must be compressed into an unobtrusive, fashionable smartwatch form factor. To improve bilateral feedback without physical discomfort, a dual-band system could be developed, utilizing a primary processing watch on one arm and a secondary Bluetooth-connected actuator band on the other.
+- Ergonomic Miniaturization: The current breadboard setup must be compressed into an unobtrusive, fashionable smartwatch form factor. To improve bilateral feedback without physical discomfort, a dual-band system could be developed, utilizing a primary processing watch on one arm and a secondary Bluetooth-connected actuator band on the other. An other option is to make a app that connect to haptic motors, because all the sensor used in this prototype are already implemented in a standard phone, which has these sensors also precalibrated.
 
--> Broader Non-Medical Applications: The core haptic directional technology developed in this project can be expanded to other fields. Potential applications include haptic GPS navigation integrated into car steering wheels (to reduce visual distraction for drivers) and advanced, discreet wayfinding tools for the visually impaired.
+Another potential direction would be the development of a smartphone application connected to external haptic actuators. Modern smartphones already contain the sensors used in this project, including GPS, accelerometers, gyroscopes, and magnetometers, which are typically factory-calibrated and highly optimized. Using a smartphone as the primary processing platform could reduce hardware complexity, improve portability, and simplify future development.
+
+- Broader Non-Medical Applications: The core haptic directional technology developed in this project can be expanded to other fields. Potential applications include haptic GPS navigation integrated into car steering wheels (to reduce visual distraction for drivers) and advanced, discreet wayfinding tools for the visually impaired.
 </div>
