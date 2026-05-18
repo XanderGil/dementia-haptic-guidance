@@ -61,9 +61,8 @@ To ensure reliable perception for elderly users with reduced tactile sensitivity
 This section describes the technical approach and system integration required to build the haptic guidance prototype. The system architecture is divided into four main layers: sensing, processing, decision, and haptic output.
 
 ### System Overview
-The prototype is built around an Arduino Micro and combines GPS positioning, orientation sensing, and haptic feedback to guide a user back to a predefined safe location.
+The prototype is built around an Arduino Micro and combines GPS positioning, orientation sensing, and haptic feedback to guide a user back to a predefined safe location.The system continuously compares:
 
-The system continuously compares:
 - the bearing → the direction toward the safe location
 - the heading → the direction the user is currently facing
 
@@ -83,17 +82,12 @@ The following components form the basis of the prototype:
 The Arduino processes all sensor data and controls the haptic guidance logic.
 
 ### Step 2: Determining Direction (Heading vs Bearing)
-The navigation system works by comparing the user’s heading with the bearing toward the safe location.
+The navigation system works by comparing the user’s heading with the bearing toward the safe location. Initially, heading was calculated only using GPS coordinates. However, this approach proved too inaccurate and too slow at walking speed because GPS position updates are limited and contain small positional errors.
 
-Initially, heading was calculated only using GPS coordinates. However, this approach proved too inaccurate and too slow at walking speed because GPS position updates are limited and contain small positional errors.
+To solve this issue, an LIS3MDL magnetometer was added to function as a digital compass. This sensor continuously measures the Earth’s magnetic field to determine the direction the user is facing. The magnetometer initially produced incorrect readings because of magnetic interference and sensor offsets. To improve accuracy:
 
-To solve this issue, an LIS3MDL magnetometer was added to function as a digital compass. This sensor continuously measures the Earth’s magnetic field to determine the direction the user is facing.
-
-#### Magnetometer Calibration
-The magnetometer initially produced incorrect readings because of magnetic interference and sensor offsets. To improve accuracy:
-
-hard-iron offsets were calibrated
-soft-iron distortion was compensated
+- hard-iron offsets were calibrated
+- soft-iron distortion was compensated
 
 After calibration, the compass achieved a directional accuracy of approximately ±10°, which was considered acceptable for this application.
 
