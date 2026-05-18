@@ -100,6 +100,7 @@ Tilt compensation is performed using vector projection. First, the magnetic fiel
 `
 float dot = mx * ax + my * ay + mz * az;
 `
+
 The component aligned with gravity is then removed:
 ```cpp
 float hx = mx - dot * ax;
@@ -109,11 +110,17 @@ float hz = mz - dot * az;
 
 This produces a horizontal magnetic vector that is less affected by tilt and roll. The final heading is then corrected for local magnetic declination and smoothed using an exponential filter to reduce sensor noise and prevent unstable haptic feedback
 
-
-
 ### Step 4: Haptic Feedback System
+The Arduino continuously combines the GPS position, compass heading, and tilt-compensated orientation data to determine the direction of the predefined safe location. Using the TinyGPS library, the system calculates both the distance and the bearing toward the target location.
 
+The navigation logic compares the user’s current heading with the target bearing and calculates the angular error between both directions. Based on this error, the system activates directional haptic feedback through the left and right TacHammer actuators. The feedback follows a threshold-based steering logic:
 
+- Correct direction (≤ 25°) → gentle confirmation pulse on both actuators
+- Small deviation (≤ 60°) → soft vibration on the side the user should turn toward
+- Large deviation (≤ 120°) → stronger repeated vibration on the corresponding side
+- Wrong direction / moving away → strong warning pattern on both actuators
+
+This approach was chosen because directional haptic feedback provides a simpler and less cognitively demanding navigation method than spoken turn-by-turn instructions.
 
 ### Step 5: Driver Communication
 The TacHammer actuators are controlled using DRV2605L haptic driver boards. Since both driver boards use the same fixed I2C address, a TCA9548A I2C multiplexer was integrated into the system design from the start. This allows the Arduino to communicate with each driver independently and control the left and right actuator separately.
@@ -126,9 +133,13 @@ The Arduino software continuously:
 4. compares heading and bearing
 5. activates the correct haptic feedback pattern
 
-Sensor filtering and smoothing were added to reduce noise and prevent unstable vibration behaviour.
+Raw compass measurements can fluctuate slightly because of sensor noise and small body movements while walking. Without filtering, these fluctuations could cause the haptic feedback to rapidly switch between left and right directions.
 
-
+To improve stability, exponential smoothing was applied to the heading data. Instead of instantly using every new heading measurement, the software gradually blends new values with previous ones:
+``cpp
+float diff = normalizeAngle(heading - smoothHeading);
+smoothHeading = wrap360(smoothHeading + diff * HEADING_SMOOTH_FACTOR);
+``
 
 
 
