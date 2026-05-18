@@ -57,7 +57,7 @@ To ensure reliable perception for elderly users with reduced tactile sensitivity
 | Portable Power Supply                    |        1 | Mobile power source for wearable operation                        | USB power bank (5V output)                                                                                                                                                                                                 |         €10–20 |
 | **Total Estimated Cost**                 |          |                                                                   |                                                                                                                                                                                                                            |  **~€170–180** |
 
-
+</div>
 
 ## Methods
 This section describes the technical approach and system integration required to build the haptic guidance prototype. The system architecture is divided into four main layers: sensing, processing, decision, and haptic output.
@@ -185,4 +185,3 @@ To evolve this prototype into a production-ready medical device, future developm
 -> Ergonomic Miniaturization: The current breadboard setup must be compressed into an unobtrusive, fashionable smartwatch form factor. To improve bilateral feedback without physical discomfort, a dual-band system could be developed, utilizing a primary processing watch on one arm and a secondary Bluetooth-connected actuator band on the other.
 
 -> Broader Non-Medical Applications: The core haptic directional technology developed in this project can be expanded to other fields. Potential applications include haptic GPS navigation integrated into car steering wheels (to reduce visual distraction for drivers) and advanced, discreet wayfinding tools for the visually impaired.
-</div>
