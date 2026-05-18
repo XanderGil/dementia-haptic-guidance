@@ -68,11 +68,23 @@ The prototype is built around an Arduino Micro and combines GPS positioning, ori
 
 Based on the difference between these two values, the system activates haptic feedback on the left or right side of the wearable.
 
-GPS --> Arduino
-Magnetometer --> Arduino
-MPU6050 --> Arduino
-Arduino --> TCA9548A
-TCA9548A --> DRV2605L --> TacHammer
+#### System Architecture Diagram
+- GPS --> Arduino
+- Magnetometer --> Arduino
+- MPU6050 --> Arduino
+- Arduino --> TCA9548A
+- TCA9548A --> DRV2605L Left --> TacHammer Left
+- TCA9548A --> DRV2605L Right --> TacHammer Right
+
+#### Wiring
+| Component | Interface | Arduino Pins |
+| --------- | --------- | ------------ |
+| GPS       | Serial    | RX/TX        |
+| LIS3MDL   | I2C       | SDA/SCL      |
+| MPU6050   | I2C       | SDA/SCL      |
+| TCA9548A  | I2C       | SDA/SCL      |
+| DRV2605L  | via TCA   | I2C          |
+
 
 ### Step 1: Core Components
 The following components form the basis of the prototype:
