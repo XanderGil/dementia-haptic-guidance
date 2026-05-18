@@ -207,8 +207,6 @@ To evolve this prototype into a production-ready medical device, future developm
 
 ## References
 
-## References
-
 [1] S. A. Shah et al., “Dementia Care Research and Education in Low- and Middle-Income Countries: A Global Perspective,” *Frontiers in Public Health*, vol. 10, 2022, doi: 10.3389/fpubh.2022.769929.
 
 [2] T. Dimitriou et al., “Non-Pharmacological Interventions for Wandering/Aberrant Motor Behaviour in Patients with Dementia,” *Brain Sciences*, vol. 12, no. 2, p. 130, Jan. 2022, doi: 10.3390/brainsci12020130.
