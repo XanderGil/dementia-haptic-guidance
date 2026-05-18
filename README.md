@@ -176,6 +176,11 @@ An unexpected conceptual limitation observed during testing is the system's reli
 ### Haptic Interaction and Prototype Constraints
 The iterative shift from a purely continuous "hot/cold" vibration mapping to a discrete, threshold-based steering algorithm (differentiating between slight and strong left/right deviations) significantly improved the interpretability of the feedback. The Drake TacHammers delivered sharp, distinct pulses that were easy to differentiate. However, from a hardware perspective, the current prototype faces physical limitations typical of breadboard assemblies. Bulky wiring and the risk of loose connections emphasize that significant ergonomic miniaturization, such as integration into a smartwatch form factor, is required before the system can be comfortably and reliably worn by elderly patients.
 
+### User Testing Limitations
+A limitation of this prototype is that it was not tested with individuals diagnosed with dementia. As a result, the effectiveness of the haptic feedback patterns was only evaluated on participants without cognitive impairments. Users without dementia may more easily associate the directional haptic cues with the required navigation actions, while people with dementia could interpret or respond to the feedback differently.
+
+Consequently, the real-world usability and cognitive effectiveness of the system for the intended target population still requires further clinical and user-centered evaluation.
+
 ## Conclusion and Future Work
 
 ### Conclusion
@@ -195,9 +200,7 @@ To evolve this prototype into a production-ready medical device, future developm
 
 - Smart Routing Integration: Upgrading the navigation logic from direct line-of-sight coordinates to an integrated map network API. This would allow the system to guide users safely via actual streets, sidewalks and intersections.
 
-- Ergonomic Miniaturization: The current breadboard setup must be compressed into an unobtrusive, fashionable smartwatch form factor. To improve bilateral feedback without physical discomfort, a dual-band system could be developed, utilizing a primary processing watch on one arm and a secondary Bluetooth-connected actuator band on the other. An other option is to make a app that connect to haptic motors, because all the sensor used in this prototype are already implemented in a standard phone, which has these sensors also precalibrated.
-
-Another potential direction would be the development of a smartphone application connected to external haptic actuators. Modern smartphones already contain the sensors used in this project, including GPS, accelerometers, gyroscopes, and magnetometers, which are typically factory-calibrated and highly optimized. Using a smartphone as the primary processing platform could reduce hardware complexity, improve portability, and simplify future development.
+- Ergonomic Miniaturization: The current breadboard setup must be compressed into an unobtrusive, fashionable smartwatch form factor. To improve bilateral feedback without physical discomfort, a dual-band system could be developed, utilizing a primary processing watch on one arm and a secondary Bluetooth-connected actuator band on the other. An other option is to make a app that connect to haptic motors, because all the sensor used in this prototype are already implemented in a standard phone, which has these sensors also precalibrated. Another potential direction would be the development of a smartphone application connected to external haptic actuators. Modern smartphones already contain the sensors used in this project, including GPS, accelerometers, gyroscopes, and magnetometers, which are typically factory-calibrated and highly optimized. Using a smartphone as the primary processing platform could reduce hardware complexity, improve portability, and simplify future development.
 
 - Broader Non-Medical Applications: The core haptic directional technology developed in this project can be expanded to other fields. Potential applications include haptic GPS navigation integrated into car steering wheels (to reduce visual distraction for drivers) and advanced, discreet wayfinding tools for the visually impaired.
 </div>
