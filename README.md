@@ -60,13 +60,72 @@ To ensure reliable perception for elderly users with reduced tactile sensitivity
 
 
 ## Methods
-
 This section describes the technical approach and system integration required to build the haptic guidance prototype. The system architecture is divided into four main layers: sensing, processing, decision, and haptic output.
 
-### Step 1: System Architecture and Component Selection
+### System Overview
+The prototype is built around an Arduino Micro and combines GPS positioning, orientation sensing, and haptic feedback to guide a user back to a predefined safe location.
+
+The system continuously compares:
+the bearing → the direction toward the safe location
+the heading → the direction the user is currently facing
+
+Based on the difference between these two values, the system activates haptic feedback on the left or right side of the wearable.
+
+### Step 1: Core Components
+The following components form the basis of the prototype:
+
+Arduino Micro → central controller
+GY-NEO6MV2 GPS module → location tracking
+LIS3MDL magnetometer → heading detection
+MPU6050 IMU → tilt and roll compensation
+2x Drake TacHammer actuators → haptic feedback
+2x DRV2605L drivers → actuator control
+TCA9548A I2C multiplexer → allows both DRV2605L modules to work simultaneously
+
+The Arduino processes all sensor data and controls the haptic guidance logic.
+
+### Step 2: Determining Direction (Heading vs Bearing)
+The navigation system works by comparing the user’s heading with the bearing toward the safe location.
+
+Initially, heading was calculated only using GPS coordinates. However, this approach proved too inaccurate and too slow at walking speed because GPS position updates are limited and contain small positional errors.
+
+To solve this issue, an LIS3MDL magnetometer was added to function as a digital compass. This sensor continuously measures the Earth’s magnetic field to determine the direction the user is facing.
+
+#### Magnetometer Calibration
+The magnetometer initially produced incorrect readings because of magnetic interference and sensor offsets. To improve accuracy:
+
+hard-iron offsets were calibrated
+soft-iron distortion was compensated
+
+After calibration, the compass achieved a directional accuracy of approximately ±10°, which was considered acceptable for this application.
+
+### Step 3: Tilt and Roll Compensation
+
+Because the device is worn on the body, the sensor is rarely perfectly horizontal during movement. Even small tilts can distort compass readings and produce incorrect heading values.
+
+To compensate for this, an MPU6050 IMU was added. This module measures:
+
+tilt
+roll
+acceleration
+
+Using this information, the software compensates the magnetometer readings in real time so the heading remains stable even when the user moves naturally. The MPU6050 was also calibrated to remove sensor offsets and improve measurement stability.
+
+### Step 4: Haptic Feedback System
+
+
+
+
+
+
+
+
+
+### Step 1: Core Components
 The core of the system is the Arduino Micro, chosen for its compact size and comprehensive communication interfaces (I2C and Serial) suitable for wearable applications. The logic dictates that the system must continuously calculate two vectors: the bearing (the direct line from the current location to the preset home location) and the heading (the direction the user is currently facing or moving). To deliver clear, percussive tactile feedback without causing overstimulation, Drake TacHammer were selected as actuators.
 
-### Step 2: Sensor Integration (Localization and Orientation)
+
+### Step 2: Determining Direction (Heading vs Bearing)
 Initially, the system was designed to rely solely on the GY-NEO6MV2 GPS module for both position and heading data. However, relying on successive GPS coordinates to determine heading proved too inaccurate and slow at pedestrian walking speeds. To resolve this, an LIS3MDL magnetometer was integrated to determine the absolute direction. To ensure data reliability, the magnetometer was calibrated to eliminate hard-iron and soft-iron offsets, achieving a reliable heading accuracy within an acceptable range of ~10°C. Furthermore, because the user wears the device around the waist, the sensor is rarely perfectly horizontal, which would normally distort compass readings. To solve this, an MPU-6050 IMU was incorporated to provide real-time tilt and roll compensation, ensuring stable orientation tracking regardless of arm positioning. Both auxiliary sensors communicate with the Arduino Micro via the shared I2C bus.
 
 ### Step 3: Haptic Output Subsystem Construction
