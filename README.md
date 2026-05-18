@@ -92,23 +92,28 @@ To solve this issue, an LIS3MDL magnetometer was added to function as a digital 
 After calibration, the compass achieved a directional accuracy of approximately ±10°, which was considered acceptable for this application.
 
 ### Step 3: Tilt and Roll Compensation
+Because the device is worn on the body, the sensor will not always remain perfectly horizontal while the user is walking. This can distort the compass heading calculated from the magnetometer and result in incorrect left/right navigation feedback.
 
-Because the device is worn on the body, the sensor is rarely perfectly horizontal during movement. Even small tilts can distort compass readings and produce incorrect heading values. To compensate for this, an MPU6050 IMU was added. This module measures:
+To improve heading stability, the system combines the 3-axis magnetic field data from the LIS3MDL with the 3-axis accelerometer data from the MPU6050. The accelerometer acts as a gravity reference, allowing the software to estimate the tilt of the device in real time.
 
-- tilt
-- roll
-- acceleration
+Tilt compensation is performed using vector projection. First, the magnetic field vector is projected onto the gravity vector:
+float dot = mx * ax + my * ay + mz * az;
 
-Using this information, the software compensates the magnetometer readings in real time so the heading remains stable even when the user moves naturally.
+The component aligned with gravity is then removed:
+float hx = mx - dot * ax;
+float hy = my - dot * ay;
+float hz = mz - dot * az;
+
+This produces a horizontal magnetic vector that is less affected by tilt and roll. The final heading is then corrected for local magnetic declination and smoothed using an exponential filter to reduce sensor noise and prevent unstable haptic feedback
+
+
 
 ### Step 4: Haptic Feedback System
 
 
 
 ### Step 5: Driver Communication
-The TacHammer actuators are controlled using DRV2605L haptic driver boards. A hardware limitation appeared because both driver boards use the same fixed I2C address, meaning they cannot normally operate together on the same bus.
-
-To solve this, a TCA9548A I2C multiplexer was added. This allows the Arduino to communicate with each driver independently and activate the left and right actuator separately.
+The TacHammer actuators are controlled using DRV2605L haptic driver boards. Since both driver boards use the same fixed I2C address, a TCA9548A I2C multiplexer was integrated into the system design from the start. This allows the Arduino to communicate with each driver independently and control the left and right actuator separately.
 
 ### Step 6: Software integration
 The Arduino software continuously:
@@ -117,6 +122,7 @@ The Arduino software continuously:
 3. determines the current heading
 4. compares heading and bearing
 5. activates the correct haptic feedback pattern
+
 Sensor filtering and smoothing were added to reduce noise and prevent unstable vibration behaviour.
 
 
