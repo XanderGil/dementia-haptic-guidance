@@ -97,12 +97,12 @@ Because the device is worn on the body, the sensor will not always remain perfec
 To improve heading stability, the system combines the 3-axis magnetic field data from the LIS3MDL with the 3-axis accelerometer data from the MPU6050. The accelerometer acts as a gravity reference, allowing the software to estimate the tilt of the device in real time.
 
 Tilt compensation is performed using vector projection. First, the magnetic field vector is projected onto the gravity vector:
-float dot = mx * ax + my * ay + mz * az;
+'float dot = mx * ax + my * ay + mz * az;'
 
 The component aligned with gravity is then removed:
-float hx = mx - dot * ax;
+'''float hx = mx - dot * ax;
 float hy = my - dot * ay;
-float hz = mz - dot * az;
+float hz = mz - dot * az;'''
 
 This produces a horizontal magnetic vector that is less affected by tilt and roll. The final heading is then corrected for local magnetic declination and smoothed using an exponential filter to reduce sensor noise and prevent unstable haptic feedback
 
