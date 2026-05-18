@@ -74,13 +74,13 @@ Based on the difference between these two values, the system activates haptic fe
 ### Step 1: Core Components
 The following components form the basis of the prototype:
 
-Arduino Micro → central controller
-GY-NEO6MV2 GPS module → location tracking
-LIS3MDL magnetometer → heading detection
-MPU6050 IMU → tilt and roll compensation
-2x Drake TacHammer actuators → haptic feedback
-2x DRV2605L drivers → actuator control
-TCA9548A I2C multiplexer → allows both DRV2605L modules to work simultaneously
+- Arduino Micro → central controller
+- GY-NEO6MV2 GPS module → location tracking
+- LIS3MDL magnetometer → heading detection
+- MPU6050 IMU → tilt and roll compensation
+- 2x Drake TacHammer actuators → haptic feedback
+- 2x DRV2605L drivers → actuator control
+- TCA9548A I2C multiplexer → allows both DRV2605L modules to work simultaneously
 
 The Arduino processes all sensor data and controls the haptic guidance logic.
 
